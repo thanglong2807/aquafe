@@ -21,7 +21,8 @@ function normalizeStrapiApiUrl(input?: string): string {
   return trimmed.replace(/\/+$/g, '');
 }
 
-export const STRAPI_API_URL = normalizeStrapiApiUrl(process.env.NEXT_PUBLIC_STRAPI_API_URL);
+const rawStrapiApiUrl = process.env.NEXT_PUBLIC_STRAPI_API_URL || process.env.STRAPI_API_URL;
+export const STRAPI_API_URL = normalizeStrapiApiUrl(rawStrapiApiUrl);
 
 
 /**
@@ -31,7 +32,7 @@ export const STRAPI_API_URL = normalizeStrapiApiUrl(process.env.NEXT_PUBLIC_STRA
  */
 export function getStrapiURL(path = "") {
   if (!STRAPI_API_URL) {
-    throw new Error('NEXT_PUBLIC_STRAPI_API_URL is missing. Please set it in your deployment environment variables.');
+    return path;
   }
   return `${STRAPI_API_URL}${path}`;
 }
