@@ -2,6 +2,8 @@ import Link from 'next/link';
 import Image from 'next/image';
 
 const HeroSection = () => {
+  console.log(process.env.NEXT_PUBLIC_STRAPI_API_URL);
+  
   return (
     <section className="relative h-[500px] md:h-[600px] flex items-center justify-center text-center text-white">
       <Image

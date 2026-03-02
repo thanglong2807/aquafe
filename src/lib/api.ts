@@ -22,7 +22,7 @@ function normalizeStrapiApiUrl(input?: string): string {
 }
 
 export const STRAPI_API_URL = normalizeStrapiApiUrl(process.env.NEXT_PUBLIC_STRAPI_API_URL);
-console.log(STRAPI_API_URL);
+
 
 /**
  * Get full Strapi URL from path
