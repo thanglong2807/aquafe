@@ -8,8 +8,8 @@ const AboutPage = () => {
         <Image
           src="/categories/aquascape-category.jpg" // Re-use a nice image
           alt="Giới thiệu Đức Đạt Aqua"
-          layout="fill"
-          objectFit="cover"
+          fill
+          className="object-cover"
         />
         <div className="absolute inset-0 bg-black/50 flex items-center justify-center">
           <h1 className="text-5xl font-bold text-white">Về Chúng Tôi</h1>

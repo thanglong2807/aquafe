@@ -7,9 +7,8 @@ const HeroSection = () => {
       <Image
         src="/group-fish-swimming-aquarium.jpg" // Replace with a real banner image
         alt="Banner cá cảnh"
-        layout="fill"
-        objectFit="cover"
-        className="absolute z-0"
+        fill
+        className="absolute z-0 object-cover"
       />
       <div className="absolute inset-0 bg-black/50 z-10"></div>
       <div className="relative z-20 p-4">
