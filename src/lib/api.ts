@@ -60,6 +60,13 @@ export async function fetchAPI(path: string, urlParamsObject = {}, options = {})
     });
     const requestUrl = `${getStrapiURL(`/api${path}${queryString ? `?${queryString}` : ""}`)}`;
 
+    if (!/^https?:\/\//i.test(requestUrl)) {
+      console.error(
+        'Invalid Strapi API URL. Please set NEXT_PUBLIC_STRAPI_API_URL or STRAPI_API_URL to an absolute URL (e.g. https://your-backend-domain).'
+      );
+      return { data: [] };
+    }
+
 
     // Trigger API call
     const response = await fetch(requestUrl, mergedOptions);
