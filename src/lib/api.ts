@@ -2,7 +2,26 @@
 
 import qs from 'qs';
 
-export const STRAPI_API_URL = process.env.NEXT_PUBLIC_STRAPI_API_URL;
+function normalizeStrapiApiUrl(input?: string): string {
+  if (!input) return '';
+
+  const trimmed = input.trim();
+  if (!trimmed) return '';
+
+  const hostCandidate = trimmed.replace(/^\/+|\/+$/g, '');
+
+  if (/^https?:\/\//i.test(trimmed)) {
+    return trimmed.replace(/\/+$/g, '');
+  }
+
+  if (hostCandidate.includes('.')) {
+    return `https://${hostCandidate}`;
+  }
+
+  return trimmed.replace(/\/+$/g, '');
+}
+
+export const STRAPI_API_URL = normalizeStrapiApiUrl(process.env.NEXT_PUBLIC_STRAPI_API_URL);
 
 /**
  * Get full Strapi URL from path
@@ -10,6 +29,9 @@ export const STRAPI_API_URL = process.env.NEXT_PUBLIC_STRAPI_API_URL;
  * @returns {string} Full Strapi URL
  */
 export function getStrapiURL(path = "") {
+  if (!STRAPI_API_URL) {
+    throw new Error('NEXT_PUBLIC_STRAPI_API_URL is missing. Please set it in your deployment environment variables.');
+  }
   return `${STRAPI_API_URL}${path}`;
 }
 
