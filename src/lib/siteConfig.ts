@@ -11,4 +11,5 @@ export const siteConfig = {
   facebookUrl: process.env.NEXT_PUBLIC_SOCIAL_FACEBOOK || '#',
   youtubeUrl: process.env.NEXT_PUBLIC_SOCIAL_YOUTUBE || '#',
   tiktokUrl: process.env.NEXT_PUBLIC_SOCIAL_TIKTOK || '#',
+
 };
