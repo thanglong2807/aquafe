@@ -8,10 +8,10 @@ export default async function Home() {
   // Fetching data from the API
   const [categoriesRes, productsRes, postsRes] = await Promise.all([
     fetchAPI('/danh-mucs', { populate: { HinhAnh: { populate: '*' } } }),
-    fetchAPI('/san-phams', { 
+    fetchAPI('/san-phams', {
       filters: { LaSanPhamNoiBat: { $eq: true } },
-      populate: { AnhDaiDien: { populate: '*' } },
-      pagination: { limit: 6 } 
+      populate: '*',
+      pagination: { limit: 6 }
     }),
     fetchAPI('/bai-viets', { 
       populate: { HinhDaiDien: { populate: '*' } },
