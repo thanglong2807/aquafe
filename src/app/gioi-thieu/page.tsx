@@ -6,7 +6,7 @@ const AboutPage = () => {
     <div className="bg-white">
       <div className="relative h-80">
         <Image
-          src="/categories/aquascape-category.jpg" // Re-use a nice image
+          src="https://i.pinimg.com/1200x/eb/d2/35/ebd235b9217d3f961723be5aeff03f71.jpg"
           alt="Giới thiệu Đức Đạt Aqua"
           fill
           className="object-cover"
@@ -18,27 +18,25 @@ const AboutPage = () => {
 
       <div className="container mx-auto p-8 md:p-12">
         <div className="prose lg:prose-lg max-w-4xl mx-auto text-justify">
-          <h2>Đức Đạt Aqua: Nơi Đam Mê Thủy Sinh Bùng Cháy</h2>
+          <h2>Đức Đạt Aqua: Chuyên Thiết Bị & Phụ Kiện Hồ Cá</h2>
           <p>
-            Chào mừng bạn đến với Đức Đạt Aqua, điểm đến lý tưởng cho những người yêu thích thế giới thủy sinh. Chúng tôi không chỉ là một cửa hàng bán cá cảnh và phụ kiện, mà còn là một cộng đồng nơi mọi người có thể chia sẻ niềm đam mê, học hỏi kinh nghiệm và cùng nhau tạo nên những tác phẩm nghệ thuật sống động dưới mặt nước.
+            Chào mừng bạn đến với Đức Đạt Aqua — đơn vị chuyên cung cấp thiết bị và phụ kiện hồ cá cảnh, thủy sinh chất lượng cao tại Hà Nội. Chúng tôi cung cấp đầy đủ các sản phẩm cần thiết để setup và vận hành hồ cá: máy bơm, máy lọc, vật liệu lọc, vi sinh, hóa chất thủy sinh và cốt nền.
           </p>
           <p>
-            Được thành lập bởi những chuyên gia có nhiều năm kinh nghiệm trong lĩnh vực cá cảnh và aquascaping, Đức Đạt Aqua tự hào mang đến cho khách hàng những sản phẩm chất lượng nhất, từ những chú cá khỏe mạnh, màu sắc rực rỡ đến các loại cây thủy sinh đa dạng và những bộ phụ kiện hiện đại, hiệu quả.
+            Với nhiều năm kinh nghiệm trong lĩnh vực cá cảnh và thủy sinh, Đức Đạt Aqua tự hào là đại lý phân phối các thương hiệu thiết bị uy tín như BaoYu, Sunsun, OGC cùng nhiều nhãn hàng chất lượng khác. Chúng tôi phục vụ cả khách lẻ và khách buôn sỉ trên toàn quốc qua Shopee và Lazada.
           </p>
-          
-          <h3>Sứ Mệnh Của Chúng Tôi</h3>
-          <p>
-            Sứ mệnh của Đức Đạt Aqua là lan tỏa niềm đam mê thủy sinh đến với mọi nhà. Chúng tôi tin rằng việc sở hữu một hồ cá đẹp không chỉ mang lại vẻ đẹp cho không gian sống mà còn là một liệu pháp thư giãn tinh thần tuyệt vời. Vì vậy, chúng tôi luôn nỗ lực:
-          </p>
+
+          <h3>Sản Phẩm Chính</h3>
           <ul>
-            <li><strong>Cung cấp sản phẩm chất lượng:</strong> Tuyển chọn kỹ lưỡng các loại cá, tép, cây và phụ kiện từ những nguồn uy tín.</li>
-            <li><strong>Tư vấn tận tâm:</strong> Đội ngũ nhân viên giàu kinh nghiệm luôn sẵn sàng chia sẻ kiến thức, giúp bạn giải đáp mọi thắc mắc từ khâu chọn cá, setup hồ đến việc chăm sóc hàng ngày.</li>
-            <li><strong>Xây dựng cộng đồng:</strong> Tạo ra một sân chơi bổ ích để mọi người cùng giao lưu, học hỏi và phát triển niềm đam mê.</li>
+            <li><strong>Máy bơm & máy lọc:</strong> Đa dạng công suất từ bể mini đến hồ koi lớn, các thương hiệu BaoYu, Sunsun, OGC.</li>
+            <li><strong>Vật liệu lọc:</strong> Bông lọc, túi đựng vật liệu lọc và các loại vật liệu lọc sinh học chất lượng cao.</li>
+            <li><strong>Vi sinh:</strong> Multibio, Extra Bio, Zero Shock — khử độc, làm trong nước, xử lý mùi hôi tanh cho bể cá cảnh.</li>
+            <li><strong>Hóa chất thủy sinh:</strong> Thuốc diệt rêu TL an toàn với động vật thủy sinh, cốt nền 5S TL bổ sung dinh dưỡng cho cây.</li>
           </ul>
 
           <h3>Tại Sao Chọn Đức Đạt Aqua?</h3>
           <p>
-            Đến với Đức Đạt Aqua, bạn không chỉ mua được sản phẩm tốt mà còn nhận được sự hỗ trợ toàn diện. Chúng tôi cam kết đồng hành cùng bạn trên hành trình chinh phục đam mê thủy sinh. Hãy để Đức Đạt Aqua giúp bạn biến ý tưởng về một hồ cá trong mơ thành hiện thực!
+            Đức Đạt Aqua cam kết cung cấp sản phẩm chính hãng, giá cạnh tranh và tư vấn kỹ thuật tận tâm. Dù bạn là người mới bắt đầu hay đã có kinh nghiệm, chúng tôi luôn sẵn sàng hỗ trợ bạn chọn đúng thiết bị cho hồ cá của mình.
           </p>
         </div>
       </div>

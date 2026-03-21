@@ -40,10 +40,13 @@ const nextConfig = {
                 hostname: 'beaqua-production.up.railway.app',
                 pathname: '/uploads/**',
             },
+            {
+                protocol: 'https',
+                hostname: 'i.pinimg.com',
+            },
             ...(dynamicRemotePattern ? [dynamicRemotePattern] : []),
         ],
     },
 };
 
 export default nextConfig;
-

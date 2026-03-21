@@ -5,7 +5,7 @@ import Link from 'next/link';
 
 const ProductCard = ({ product }: { product: any }) => {
   // API has flat structure, no 'attributes' nesting
-  const { TenSanPham, Slug, MoTaNgan, Gia, AnhDaiDien } = product; 
+  const { TenSanPham, Slug, Gia, AnhDaiDien } = product;
   const imageUrl = getStrapiMedia(AnhDaiDien);
   
   return (
@@ -25,10 +25,10 @@ const ProductCard = ({ product }: { product: any }) => {
         </div>
       </Link>
       <div className="p-4">
-        <h3 className="text-lg font-semibold mb-2 h-14">
+        <h3 className="text-lg font-semibold mb-2 line-clamp-2">
             <Link href={`/san-pham/${Slug}`} className="hover:text-green-600 transition-colors">{TenSanPham}</Link>
         </h3>
-        <p className="text-gray-600 text-sm mb-4 h-10">{MoTaNgan}</p>
+
         <div className="flex justify-between items-center">
           <span className="font-bold text-green-600">{formatPrice(Gia)}</span>
             <a href={siteConfig.zaloUrl} target="_blank" rel="noopener noreferrer" className="px-4 py-2 text-sm font-semibold text-white bg-green-500 rounded-xl hover:bg-green-600 transition-all">

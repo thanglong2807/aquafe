@@ -27,6 +27,9 @@ const Header = () => {
           <Link href="/kien-thuc" className="text-gray-600 hover:text-emerald-500 transition">
             Kiến thức
           </Link>
+          <Link href="/gioi-thieu" className="text-gray-600 hover:text-emerald-500 transition">
+            Giới thiệu
+          </Link>
           <Link href="/lien-he" className="text-gray-600 hover:text-emerald-500 transition">
             Liên hệ
           </Link>
@@ -90,6 +93,9 @@ const Header = () => {
             </Link>
             <Link href="/kien-thuc" className="block text-gray-700 font-medium">
               Kiến thức
+            </Link>
+            <Link href="/gioi-thieu" className="block text-gray-700 font-medium">
+              Giới thiệu
             </Link>
             <Link href="/lien-he" className="block text-gray-700 font-medium">
               Liên hệ

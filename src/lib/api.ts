@@ -24,7 +24,6 @@ function normalizeStrapiApiUrl(input?: string): string {
 const rawStrapiApiUrl = process.env.NEXT_PUBLIC_STRAPI_API_URL || process.env.STRAPI_API_URL;
 export const STRAPI_API_URL = normalizeStrapiApiUrl(rawStrapiApiUrl);
 
-
 /**
  * Get full Strapi URL from path
  * @param {string} path Path of the URL
@@ -67,7 +66,6 @@ export async function fetchAPI(path: string, urlParamsObject = {}, options = {})
       return { data: [] };
     }
 
-
     // Trigger API call
     const response = await fetch(requestUrl, mergedOptions);
 
@@ -80,8 +78,6 @@ export async function fetchAPI(path: string, urlParamsObject = {}, options = {})
     }
     const data = await response.json();
 
-    // The API returns data in a 'data' property.
-    // We are returning it directly as it has a flat structure.
     return data;
   } catch (error) {
     console.error(error);
@@ -90,7 +86,7 @@ export async function fetchAPI(path: string, urlParamsObject = {}, options = {})
 }
 
 /**
- * 
+ *
  * @param {object} media The media object from Strapi
  * @returns {string} The URL of the media
  */

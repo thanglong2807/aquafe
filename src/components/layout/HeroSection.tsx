@@ -12,9 +12,9 @@ const HeroSection = () => {
       />
       <div className="absolute inset-0 bg-black/50 z-10"></div>
       <div className="relative z-20 p-4">
-        <h1 className="text-4xl md:text-6xl font-bold mb-4">Thế Giới Thủy Sinh Sống Động</h1>
+        <h1 className="text-4xl md:text-6xl font-bold mb-4">Thiết Bị Hồ Cá Chất Lượng Cao</h1>
         <p className="max-w-2xl mx-auto mb-8 text-lg">
-          Khám phá bộ sưu tập cá cảnh, cây thủy sinh và phụ kiện độc đáo để tạo nên hồ cá trong mơ của bạn.
+          Chuyên cung cấp máy bơm, máy lọc, vật liệu lọc, vi sinh và hóa chất thủy sinh — đầy đủ thiết bị để setup và vận hành hồ cá hoàn hảo.
         </p>
         <div className="flex justify-center space-x-4">
           <Link href="/danh-muc" className="px-8 py-3 font-semibold bg-green-500 rounded-xl hover:bg-green-600 transition-all">
