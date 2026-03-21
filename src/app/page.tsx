@@ -7,7 +7,7 @@ import { fetchAPI } from "@/lib/api";
 export default async function Home() {
   // Fetching data from the API
   const [categoriesRes, productsRes, postsRes] = await Promise.all([
-    fetchAPI('/danh-mucs', { populate: { HinhAnh: { populate: '*' } } }),
+    fetchAPI('/danh-mucs', { populate: '*' }),
     fetchAPI('/san-phams', {
       filters: { LaSanPhamNoiBat: { $eq: true } },
       populate: '*',
