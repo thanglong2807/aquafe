@@ -1,5 +1,6 @@
 // src/app/san-pham/[slug]/page.tsx
 import { fetchAPI, formatPrice, getProductImage } from '@/lib/api';
+import ImageGallery from '@/components/product/ImageGallery';
 import { siteConfig } from '@/lib/siteConfig';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -102,28 +103,7 @@ const ProductDetailPage = async ({ params }: { params: Promise<{ slug:string }> 
       <div className="bg-white rounded-2xl border border-gray-100 shadow-sm p-5 md:p-8 grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12">
         {/* Left Column: Image Gallery */}
         <div>
-          <div className="relative w-full h-96 rounded-2xl overflow-hidden shadow-sm mb-4 border border-gray-100">
-            {mainImageUrl && <Image
-              src={mainImageUrl}
-              alt={TenSanPham}
-              fill
-              unoptimized
-              style={{ objectFit: 'cover' }}
-            />}
-          </div>
-          <div className="grid grid-cols-4 gap-2">
-            {displayImages.map((imgUrl, index) => (
-              <div key={index} className="relative w-full h-24 rounded-xl overflow-hidden cursor-pointer border-2 border-transparent hover:border-emerald-500 transition-colors">
-                <Image
-                  src={imgUrl}
-                  alt={`${TenSanPham} gallery image ${index + 1}`}
-                  fill
-                  unoptimized
-                  style={{ objectFit: 'cover' }}
-                />
-              </div>
-            ))}
-          </div>
+          <ImageGallery images={displayImages} alt={TenSanPham} />
         </div>
 
         {/* Right Column: Product Info */}
