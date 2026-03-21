@@ -51,6 +51,11 @@ const FeaturedProducts = ({ products }: { products: any[] }) => {
             <ProductCard key={product.id} product={product} />
           ))}
         </div>
+        <div className="text-center mt-10">
+          <Link href="/danh-muc" className="inline-block px-8 py-3 font-semibold text-white bg-emerald-500 rounded-xl hover:bg-emerald-600 transition-all">
+            Xem tất cả sản phẩm
+          </Link>
+        </div>
       </div>
     </section>
   );
