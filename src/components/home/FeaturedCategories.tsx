@@ -1,4 +1,3 @@
-import { getStrapiMedia } from '@/lib/api';
 import Link from 'next/link';
 
 const FeaturedCategories = ({ categories }: { categories: any[] }) => {
@@ -8,10 +7,8 @@ const FeaturedCategories = ({ categories }: { categories: any[] }) => {
         <h2 className="text-3xl font-bold text-center mb-12">Danh Mục Nổi Bật</h2>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {categories && categories.map((category) => {
-            // API has flat structure, no 'attributes' nesting
             const { TenDanhMuc, Slug, HinhAnh } = category;
-            const imageUrl = getStrapiMedia(HinhAnh);
-            console.log(`Category ${TenDanhMuc} image URL: ${imageUrl}`);
+            const imageUrl = Array.isArray(HinhAnh) ? HinhAnh[0]?.url : HinhAnh?.url;
             return (
               <Link key={category.id} href={`/danh-muc/${Slug}`} className="group block text-center">
               <div
