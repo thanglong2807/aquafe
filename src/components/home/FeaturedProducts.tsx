@@ -1,12 +1,12 @@
-import { formatPrice, getStrapiMedia } from '@/lib/api';
+import { formatPrice, getProductImage } from '@/lib/api';
 import { siteConfig } from '@/lib/siteConfig';
 import Image from 'next/image';
 import Link from 'next/link';
 
 const ProductCard = ({ product }: { product: any }) => {
   // API has flat structure, no 'attributes' nesting
-  const { TenSanPham, Slug, Gia, AnhDaiDien } = product;
-  const imageUrl = getStrapiMedia(AnhDaiDien);
+  const { TenSanPham, Slug, Gia } = product;
+  const imageUrl = getProductImage(product);
   
   return (
     <div className="border rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 group">

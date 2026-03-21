@@ -1,5 +1,5 @@
 // src/app/san-pham/[slug]/page.tsx
-import { fetchAPI, formatPrice, getStrapiMedia } from '@/lib/api';
+import { fetchAPI, formatPrice, getProductImage } from '@/lib/api';
 import { siteConfig } from '@/lib/siteConfig';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -83,11 +83,13 @@ const ProductDetailPage = async ({ params }: { params: Promise<{ slug:string }> 
   }
 
   // Assuming flat structure
-  const { TenSanPham, Gia, MoTaNgan, ThongTinChiTiet, AnhDaiDien, GalleryAnh } = product;
+  const { TenSanPham, Gia, MoTaNgan, ThongTinChiTiet } = product;
 
-  const mainImageUrl = getStrapiMedia(AnhDaiDien) || getStrapiMedia(Array.isArray(GalleryAnh) ? GalleryAnh[0] : null);
-  const galleryImageUrls = GalleryAnh?.map((img: any) => getStrapiMedia(img)) || [];
-  const displayImages = [mainImageUrl, ...galleryImageUrls].filter(Boolean);
+  const mainImageUrl = getProductImage(product);
+  const linkAnh: string = product?.ThongTinChiTiet?.meta?.link_anh || '';
+  const displayImages: string[] = linkAnh
+    ? linkAnh.split('\n').map((u: string) => u.trim()).filter((u: string) => u.startsWith('http'))
+    : ([mainImageUrl].filter(Boolean) as string[]);
 
   const detailsIsMarkdown = typeof ThongTinChiTiet === 'string';
   const detailsBlocks = Array.isArray(ThongTinChiTiet) ? ThongTinChiTiet : [];
@@ -166,7 +168,7 @@ const ProductDetailPage = async ({ params }: { params: Promise<{ slug:string }> 
         {relatedProducts.length > 0 ? (
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {relatedProducts.map((item: any) => {
-              const itemImageUrl = getStrapiMedia(item.AnhDaiDien);
+              const itemImageUrl = getProductImage(item);
               return (
                 <div key={item.id} className="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 border border-gray-100 group">
                   <Link href={`/san-pham/${item.Slug}`}>

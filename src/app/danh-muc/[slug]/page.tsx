@@ -1,5 +1,5 @@
 // This file is now using dynamic data from Strapi
-import { fetchAPI, formatPrice, getStrapiMedia } from '@/lib/api';
+import { fetchAPI, formatPrice, getProductImage } from '@/lib/api';
 import { siteConfig } from '@/lib/siteConfig';
 import Pagination from '@/components/common/Pagination';
 import AutoFilterSelect from '@/components/common/AutoFilterSelect';
@@ -167,8 +167,8 @@ const ProductCategoryPage = async ({
     {/* ===== GRID SẢN PHẨM ===== */}
     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
       {paginatedProducts.map((product: any) => {
-        const { TenSanPham, Slug, MoTaNgan, Gia, AnhDaiDien } = product;
-        const imageUrl = getStrapiMedia(AnhDaiDien);
+        const { TenSanPham, Slug, MoTaNgan, Gia } = product;
+        const imageUrl = getProductImage(product);
 
         return (
           <div 

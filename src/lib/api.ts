@@ -111,6 +111,19 @@ export function getStrapiMedia(media: any): string | null {
     return url.startsWith("/") ? getStrapiURL(url) : url;
 }
 
+/**
+ * Get the first image URL from a product.
+ * Tries ThongTinChiTiet.meta.link_anh (Shopee CDN) first, then falls back to AnhDaiDien.
+ */
+export function getProductImage(product: any): string | null {
+  const linkAnh = product?.ThongTinChiTiet?.meta?.link_anh;
+  if (linkAnh && typeof linkAnh === 'string') {
+    const first = linkAnh.split('\n').map((u: string) => u.trim()).find((u: string) => u.startsWith('http'));
+    if (first) return first;
+  }
+  return getStrapiMedia(product?.AnhDaiDien);
+}
+
   export function formatPrice(price: string | number | null | undefined, fallback = 'Liên hệ'): string {
     if (price === null || price === undefined || price === '') {
       return fallback;
