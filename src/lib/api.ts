@@ -129,15 +129,12 @@ export function getProductImage(product: any): string | null {
       return fallback;
     }
 
-    const numericPrice = typeof price === 'number'
-      ? price
-      : Number(String(price).replace(/[^\d.-]/g, ''));
-
-    if (Number.isNaN(numericPrice)) {
-      return String(price);
+    // If already a formatted string (e.g. "12.000₫ - 22.000₫"), return as-is
+    if (typeof price === 'string') {
+      return price.trim();
     }
 
-    return `${new Intl.NumberFormat('vi-VN').format(numericPrice)} đ`;
+    return `${new Intl.NumberFormat('vi-VN').format(price)} đ`;
   }
 
 /**
