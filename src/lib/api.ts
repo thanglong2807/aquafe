@@ -116,11 +116,13 @@ export function getStrapiMedia(media: any): string | null {
  * Tries ThongTinChiTiet.meta.link_anh (Shopee CDN) first, then falls back to AnhDaiDien.
  */
 export function getProductImage(product: any): string | null {
-  const linkAnh = product?.ThongTinChiTiet?.meta?.link_anh;
+  // Prefer Shopee CDN (always HTTPS) stored in ThongTinChiTiet
+  const linkAnh = product?.ThongTinChiTiet?.link_anh;
   if (linkAnh && typeof linkAnh === 'string') {
-    const first = linkAnh.split('\n').map((u: string) => u.trim()).find((u: string) => u.startsWith('http'));
+    const first = linkAnh.split('\n').map((u: string) => u.trim().replace(/\+$/, '')).find((u: string) => u.startsWith('https'));
     if (first) return first;
   }
+  // Fallback: Strapi uploaded image
   return getStrapiMedia(product?.AnhDaiDien);
 }
 
