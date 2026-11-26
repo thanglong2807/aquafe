@@ -1,3 +1,5 @@
+import { getStrapiMedia } from '@/lib/api';
+import Image from 'next/image';
 import Link from 'next/link';
 
 const FeaturedCategories = ({ categories }: { categories: any[] }) => {
@@ -8,14 +10,19 @@ const FeaturedCategories = ({ categories }: { categories: any[] }) => {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {categories && categories.map((category) => {
             const { TenDanhMuc, Slug, HinhAnh } = category;
-            const imageUrl = Array.isArray(HinhAnh) ? HinhAnh[0]?.url : HinhAnh?.url;
+            const imageUrl = getStrapiMedia(HinhAnh);
             return (
               <Link key={category.id} href={`/danh-muc/${Slug}`} className="group block text-center">
-              <div
-                className="relative h-64 w-full overflow-hidden rounded-xl shadow-lg 
-                group-hover:shadow-2xl transition-shadow duration-300 bg-cover bg-center"
-                style={{ backgroundImage: `url(${imageUrl})` }}
-              >
+                <div className="relative h-64 w-full overflow-hidden rounded-xl shadow-lg group-hover:shadow-2xl transition-shadow duration-300 bg-gray-200">
+                  {imageUrl && (
+                    <Image
+                      src={imageUrl}
+                      alt={TenDanhMuc}
+                      fill
+                      style={{ objectFit: 'cover' }}
+                      className="transform group-hover:scale-110 transition-transform duration-300"
+                    />
+                  )}
                   <div className="absolute inset-0 bg-black/40"></div>
                   <div className="absolute inset-0 flex items-center justify-center">
                     <h3 className="text-2xl font-bold text-white">{TenDanhMuc}</h3>
