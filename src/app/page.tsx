@@ -4,6 +4,8 @@ import FeaturedProducts from "@/components/home/FeaturedProducts";
 import HeroSection from "@/components/layout/HeroSection";
 import { fetchAPI } from "@/lib/api";
 
+export const revalidate = 3600;
+
 export default async function Home() {
   // Fetching data from the API
   const [categoriesRes, productsRes, postsRes] = await Promise.all([
